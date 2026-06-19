@@ -21,7 +21,7 @@ cartToggleBtn.addEventListener('click', toggleCart);
 closeCartBtn.addEventListener('click', toggleCart);
 sidebarOverlay.addEventListener('click', toggleCart);
 
-// Add Items to Cart Array & Render Setup
+
 addButtons.forEach(button => {
     button.addEventListener('click', (e) => {
         const productBox = e.target.closest('.box');
@@ -30,16 +30,16 @@ addButtons.forEach(button => {
         const price = parseInt(productBox.getAttribute('data-price'));
         const img = productBox.getAttribute('data-img');
 
-        // Push new item inside cart
+       
         cart.push({ id, name, price, img });
         
         updateCartUI();
     });
 });
 
-// Update Cart Tab Content dynamically
+
 function updateCartUI() {
-    // Update Counter badge
+    
     cartCountElement.textContent = cart.length;
 
     if (cart.length === 0) {
@@ -48,7 +48,7 @@ function updateCartUI() {
         return;
     }
 
-    // Render cards inside sidebar
+    
     cartItemsContainer.innerHTML = "";
     let total = 0;
 
@@ -66,6 +66,6 @@ function updateCartUI() {
         cartItemsContainer.appendChild(itemRow);
     });
 
-    // Update Total Price display
+    
     cartTotalPriceElement.textContent = `₹${total.toLocaleString('en-IN')}`;
 }
